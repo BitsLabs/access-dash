@@ -1,16 +1,13 @@
 import { cookies, headers } from "next/headers";
+import { getApiBaseUrl } from "./api-base-url";
 
 export async function fetchApi<T>(path: string): Promise<T> {
   const reqHeaders = await headers();
   const host = reqHeaders.get("host");
-  const isLocalhost = !host || host.includes("localhost");
   const cookieStore = await cookies();
+  const apiBaseUrl = getApiBaseUrl(host ?? undefined);
   const response = await fetch(
-    `${
-      isLocalhost
-        ? "http://localhost:3024"
-        : "https://saas-microservices-dashboard.vercel.app"
-    }${path}`,
+    `${apiBaseUrl}${path}`,
     {
       headers: {
         Cookie: `saas_microservices_authed_user=${

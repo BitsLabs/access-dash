@@ -1,8 +1,11 @@
 "use client";
 
+import { getApiBaseUrl } from "@/lib/api-base-url";
+
 export default function LoginPage() {
   const redirectToLogin = () => {
-    window.location.href = "/api/users/login";
+    const apiBaseUrl = getApiBaseUrl();
+    window.location.href = `${apiBaseUrl}/api/users/login`;
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
