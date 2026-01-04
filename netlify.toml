@@ -1,6 +1,7 @@
 [build]
-  command = "pnpm --filter dashboard build"
-  publish = "apps/dashboard/.next"
+  base = "apps/dashboard"
+  command = "pnpm build"
+  publish = ".next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
