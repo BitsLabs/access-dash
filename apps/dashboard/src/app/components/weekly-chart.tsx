@@ -16,9 +16,9 @@ export function WeeklyChart({ chartData }: WeeklyChartProps) {
   return (
     <Card className="col-span-4">
       <CardHeader>
-        <CardTitle>Weekly Overview</CardTitle>
+        <CardTitle>Weekly Check-ins</CardTitle>
         <p className="text-sm text-muted-foreground">
-          Sales performance for this week
+          Attendance volume by day with access validations
         </p>
       </CardHeader>
       <CardContent className="pl-2">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import DashboardPage from "./components/dashboard-page";
 
 export const metadata: Metadata = {
-  title: "Acme Dashboard",
+  title: "Flits Access Dashboard",
 };
 
 export default function Dashboard() {

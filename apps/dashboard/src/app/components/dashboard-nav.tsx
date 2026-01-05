@@ -1,6 +1,13 @@
 "use client";
 
-import { BarChart3, Users, Settings, Package, Calendar } from "lucide-react";
+import {
+  BarChart3,
+  Users,
+  Settings,
+  CalendarCheck,
+  ShieldCheck,
+  LineChart,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -19,7 +26,7 @@ export function DashboardNav() {
   return (
     <Sidebar>
       <SidebarHeader className="border-b p-4">
-        <h2 className="text-lg font-semibold">Acme Inc</h2>
+        <h2 className="text-lg font-semibold">Flits Access</h2>
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
@@ -35,18 +42,18 @@ export function DashboardNav() {
             <SidebarMenuButton asChild>
               <a href="#" className="flex items-center gap-2">
                 <Users className="h-4 w-4" />
-                <span>Customers</span>
+                <span>Members</span>
               </a>
             </SidebarMenuButton>
             <SidebarMenuSub>
               <SidebarMenuSubItem>
                 <SidebarMenuSubButton asChild>
-                  <a href="#">Active Users</a>
+                  <a href="#">Active Members</a>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
               <SidebarMenuSubItem>
                 <SidebarMenuSubButton asChild>
-                  <a href="#">User Management</a>
+                  <a href="#">Membership Profiles</a>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
             </SidebarMenuSub>
@@ -54,16 +61,24 @@ export function DashboardNav() {
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <a href="#" className="flex items-center gap-2">
-                <Package className="h-4 w-4" />
-                <span>Products</span>
+                <ShieldCheck className="h-4 w-4" />
+                <span>Access Rules</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <a href="#" className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                <span>Calendar</span>
+                <CalendarCheck className="h-4 w-4" />
+                <span>Check-ins</span>
+              </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <a href="#" className="flex items-center gap-2">
+                <LineChart className="h-4 w-4" />
+                <span>Analytics</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
