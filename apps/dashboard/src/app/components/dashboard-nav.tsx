@@ -1,6 +1,14 @@
 "use client";
 
-import { BarChart3, Users, Settings, Package, Calendar } from "lucide-react";
+import Link from "next/link";
+import {
+  BarChart3,
+  Users,
+  Settings,
+  CalendarCheck,
+  ShieldCheck,
+  LineChart,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -19,60 +27,68 @@ export function DashboardNav() {
   return (
     <Sidebar>
       <SidebarHeader className="border-b p-4">
-        <h2 className="text-lg font-semibold">Acme Inc</h2>
+        <h2 className="text-lg font-semibold">Flits Access</h2>
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild isActive>
-              <a href="#" className="flex items-center gap-2">
+              <Link href="/" className="flex items-center gap-2">
                 <BarChart3 className="h-4 w-4" />
                 <span>Dashboard</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="#" className="flex items-center gap-2">
+              <Link href="/members" className="flex items-center gap-2">
                 <Users className="h-4 w-4" />
-                <span>Customers</span>
-              </a>
+                <span>Members</span>
+              </Link>
             </SidebarMenuButton>
             <SidebarMenuSub>
               <SidebarMenuSubItem>
                 <SidebarMenuSubButton asChild>
-                  <a href="#">Active Users</a>
+                  <Link href="/members#active">Active Members</Link>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
               <SidebarMenuSubItem>
                 <SidebarMenuSubButton asChild>
-                  <a href="#">User Management</a>
+                  <Link href="/members#profiles">Membership Profiles</Link>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
             </SidebarMenuSub>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="#" className="flex items-center gap-2">
-                <Package className="h-4 w-4" />
-                <span>Products</span>
-              </a>
+              <Link href="/access-rules" className="flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4" />
+                <span>Access Rules</span>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="#" className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                <span>Calendar</span>
-              </a>
+              <Link href="/check-ins" className="flex items-center gap-2">
+                <CalendarCheck className="h-4 w-4" />
+                <span>Check-ins</span>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="#" className="flex items-center gap-2">
+              <Link href="/analytics" className="flex items-center gap-2">
+                <LineChart className="h-4 w-4" />
+                <span>Analytics</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <Link href="/settings" className="flex items-center gap-2">
                 <Settings className="h-4 w-4" />
                 <span>Settings</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

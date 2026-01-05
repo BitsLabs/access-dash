@@ -1,4 +1,3 @@
-import { cookies, headers } from "next/headers";
 import {
   Card,
   CardContent,
@@ -6,33 +5,66 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { fetchApi } from "@/lib/fetch-api";
 
-interface Activity {
-  id: string;
-  name: string;
-  action: string;
-  timestamp: string;
-}
+const activities = [
+  {
+    name: "Jordan Smith",
+    action: "Checked in to Power Yoga • Unlimited Monthly",
+    timestamp: "2 min ago",
+    status: "Approved",
+  },
+  {
+    name: "Keisha Patel",
+    action: "Reached weekly limit for HIIT Lab • 4x Weekly",
+    timestamp: "12 min ago",
+    status: "Denied",
+  },
+  {
+    name: "Luis Ortega",
+    action: "Checked in to Barre Flow • Weekday Access",
+    timestamp: "22 min ago",
+    status: "Approved",
+  },
+  {
+    name: "Amira Hassan",
+    action: "Early check-in validated for Strength Fundamentals",
+    timestamp: "35 min ago",
+    status: "Approved",
+  },
+  {
+    name: "Drew Chen",
+    action: "Plan renewal reminder sent • 3 classes remaining",
+    timestamp: "48 min ago",
+    status: "Reminder",
+  },
+  {
+    name: "Sofia Alvarez",
+    action: "Weekend-only tier blocked for weekday class",
+    timestamp: "1 hr ago",
+    status: "Denied",
+  },
+];
 
-interface ActivityResponse {
-  activities: Activity[];
-}
+const statusStyles: Record<string, string> = {
+  Approved: "bg-emerald-500/15 text-emerald-600",
+  Denied: "bg-rose-500/15 text-rose-600",
+  Reminder: "bg-amber-500/15 text-amber-600",
+};
 
-export async function RecentActivity() {
-  const activities = (
-    await fetchApi<ActivityResponse>("/api/dashboard/activity")
-  ).activities.slice(0, 6);
+export function RecentActivity() {
+  const recentActivities = activities.slice(0, 6);
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Recent Activity</CardTitle>
-        <CardDescription>Latest actions from your customers</CardDescription>
+        <CardTitle>Live Check-ins</CardTitle>
+        <CardDescription>
+          Real-time access validations and member updates
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-8">
-          {activities.map((activity, index) => (
+          {recentActivities.map((activity, index) => (
             <div key={index} className="flex items-center">
               <div className="space-y-1">
                 <p className="text-sm font-medium leading-none">
@@ -42,8 +74,15 @@ export async function RecentActivity() {
                   {activity.action}
                 </p>
               </div>
-              <div className="ml-auto text-sm text-muted-foreground">
-                {activity.timestamp}
+              <div className="ml-auto flex items-center gap-3 text-sm text-muted-foreground">
+                <span
+                  className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
+                    statusStyles[activity.status]
+                  }`}
+                >
+                  {activity.status}
+                </span>
+                <span>{activity.timestamp}</span>
               </div>
             </div>
           ))}
