@@ -9,7 +9,15 @@ Create a `.env.local` file in the `apps/dashboard` directory with the following 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3024
 ```
+
+### API Base URL
+
+The dashboard uses `NEXT_PUBLIC_API_BASE_URL` in the browser and `API_BASE_URL`
+on the server. Configure the appropriate environment-specific endpoint for both
+variables in your deployment. The browser build requires
+`NEXT_PUBLIC_API_BASE_URL` outside of localhost.
 
 ## Getting Your Supabase Credentials
 
@@ -40,4 +48,3 @@ import { createBrowserClient } from "@/lib/supabase";
 const supabase = createBrowserClient();
 const { data, error } = await supabase.from("your_table").select("*");
 ```
-
