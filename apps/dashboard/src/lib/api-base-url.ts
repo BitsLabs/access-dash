@@ -1,6 +1,17 @@
 export function getApiBaseUrl(host?: string) {
   if (typeof window !== "undefined") {
-    return window.location.origin;
+    const hostname = window.location.hostname;
+    if (hostname === "localhost" || hostname === "127.0.0.1") {
+      return window.location.origin;
+    }
+
+    if (!process.env.NEXT_PUBLIC_API_BASE_URL) {
+      throw new Error(
+        "Missing NEXT_PUBLIC_API_BASE_URL environment variable.",
+      );
+    }
+
+    return process.env.NEXT_PUBLIC_API_BASE_URL;
   }
 
   if (!host || host.includes("localhost")) {

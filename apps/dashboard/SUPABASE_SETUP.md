@@ -16,7 +16,8 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:3024
 
 The dashboard uses `NEXT_PUBLIC_API_BASE_URL` in the browser and `API_BASE_URL`
 on the server. Configure the appropriate environment-specific endpoint for both
-variables in your deployment.
+variables in your deployment. The browser build requires
+`NEXT_PUBLIC_API_BASE_URL` outside of localhost.
 
 ## Getting Your Supabase Credentials
 
