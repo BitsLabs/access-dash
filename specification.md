@@ -1,5 +1,5 @@
 # Software Specification Document
-## Flits Access for Subscription-Style Classes
+## Flits Access
 
 ### 1. Overview
 
