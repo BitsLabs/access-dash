@@ -57,8 +57,8 @@ export default function Dashboard() {
                       tone: "bg-rose-500/15 text-rose-600",
                     },
                     {
-                      title: "Payment sync delay detected",
-                      detail: "Access rules running independently",
+                      title: "Tier schedule mismatch",
+                      detail: "Weekend tiers blocked on weekday sessions",
                       tone: "bg-sky-500/15 text-sky-600",
                     },
                   ].map((alert) => (

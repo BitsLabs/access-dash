@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   BarChart3,
   Users,
@@ -32,62 +33,62 @@ export function DashboardNav() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild isActive>
-              <a href="#" className="flex items-center gap-2">
+              <Link href="/" className="flex items-center gap-2">
                 <BarChart3 className="h-4 w-4" />
                 <span>Dashboard</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="#" className="flex items-center gap-2">
+              <Link href="/members" className="flex items-center gap-2">
                 <Users className="h-4 w-4" />
                 <span>Members</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
             <SidebarMenuSub>
               <SidebarMenuSubItem>
                 <SidebarMenuSubButton asChild>
-                  <a href="#">Active Members</a>
+                  <Link href="/members#active">Active Members</Link>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
               <SidebarMenuSubItem>
                 <SidebarMenuSubButton asChild>
-                  <a href="#">Membership Profiles</a>
+                  <Link href="/members#profiles">Membership Profiles</Link>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
             </SidebarMenuSub>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="#" className="flex items-center gap-2">
+              <Link href="/access-rules" className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4" />
                 <span>Access Rules</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="#" className="flex items-center gap-2">
+              <Link href="/check-ins" className="flex items-center gap-2">
                 <CalendarCheck className="h-4 w-4" />
                 <span>Check-ins</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="#" className="flex items-center gap-2">
+              <Link href="/analytics" className="flex items-center gap-2">
                 <LineChart className="h-4 w-4" />
                 <span>Analytics</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="#" className="flex items-center gap-2">
+              <Link href="/settings" className="flex items-center gap-2">
                 <Settings className="h-4 w-4" />
                 <span>Settings</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
